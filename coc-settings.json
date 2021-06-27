@@ -1,0 +1,8 @@
+{
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "elixirLS.dialyzerEnabled": true,
+  "codeLens.enable": true,
+  "coc.preferences.jumpCommand": "vsplit"
+}
+
+
