@@ -1093,6 +1093,8 @@ highlight! link javaScriptLabel Red
 highlight! link javaScriptGlobal BlueItalic
 highlight! link javaScriptMessage BlueItalic
 " }}}
+"
+
 " vim-javascript: https://github.com/pangloss/vim-javascript{{{
 highlight! link jsNoise Fg
 highlight! link Noise Fg
@@ -1105,10 +1107,12 @@ highlight! link jsNull OrangeItalic
 highlight! link jsNan OrangeItalic
 highlight! link jsSuper OrangeItalic
 highlight! link jsPrototype OrangeItalic
-highlight! link jsFunction Red
+"highlight! link jsFunction Red
+highlight! link jsFunction Yellow
 highlight! link jsGlobalNodeObjects BlueItalic
 highlight! link jsGlobalObjects BlueItalic
-highlight! link jsArrowFunction Red
+"highlight! link jsArrowFunction Red
+highlight! link jsArrowFunction Yellow
 highlight! link jsArrowFuncArgs Fg
 highlight! link jsFuncArgs Fg
 highlight! link jsObjectProp Fg

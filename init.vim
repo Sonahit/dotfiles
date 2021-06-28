@@ -15,6 +15,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-editors/vim-elixir'
 Plug 'luochen1990/rainbow'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'dstein64/nvim-scrollview'
 "Plug 'Yggdroot/indentLine'
 
 call plug#end()
@@ -256,6 +260,11 @@ let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_bookmarks = ['~/git/', '~/git/mds', '~/git/biotech']
 
 nnoremap <leader>st :tabnew<cr>:Startify<cr>
+
+"languages
+
+let g:javascript_plugin_jsdoc = 1
+
 
 "startify=====end
 let g:rainbow_active = 1
