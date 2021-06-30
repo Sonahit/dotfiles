@@ -1,0 +1,203 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/git/biotech/apps/api/src/modules/vacancy/controllers
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +250 term://.//27965:/bin/zsh
+badd +26 ~/git/biotech/apps/web/components/comments/Comments.js
+badd +21 ~/.config/nvim/init.vim
+badd +263 ~/.config/nvim/plugged/vim-javascript/syntax/javascript.vim
+badd +1 ~/.config/:tabnew\ /home/sonahit/.config/nvim/init.vim
+badd +7 ~/.config/nvim/colors/syntax.vim
+badd +1291 ~/.config/nvim/colors/sonokai.vim
+badd +22 ~/.config/nvim/autoload/sonokai.vim
+badd +16 term://.//37945:/bin/zsh
+badd +18 ~/git/biotech/apps/web/yarn.lock
+badd +1 ~/git/biotech/apps/web/.editorconfig
+badd +1 ~/git/biotech/apps/NERD_tree_2
+badd +1 ~/git/NERD_tree_1
+badd +1 ~/.config/nvim/\[Plugins]
+badd +69 ~/.cache/typescript/4.3/node_modules/@types/config/index.d.ts
+badd +1 ~/git/biotech/apps/web/node_modules/antd/lib/index.d.ts
+badd +46 ~/git/biotech/apps/web/auth/context.js
+badd +381 ~/git/biotech/apps/web/node_modules/@types/react/index.d.ts
+badd +37 ~/git/biotech/apps/web/auth/cookies.js
+badd +85 ~/git/biotech/apps/web/actions/user.js
+badd +1 ~/git/biotech/apps/web/auth/NERD_tree_2
+badd +1 term://.//127793:/bin/zsh
+badd +1 term://.//127800:/bin/zsh
+badd +31 term://.//114811:/bin/zsh
+badd +175 ~/git/biotech/apps/api/src/modules/posts/posts.service.ts
+badd +7 ~/.config/nvim/coc-settings.json
+badd +3 ~/git/biotech/apps/api/src/config/database.config.ts
+badd +12 ~/git/biotech/apps/api/src/config/jwt.config.ts
+badd +22 ~/git/biotech/apps/api/src/models/category.ts
+badd +6 ~/git/biotech/apps/api/src/models/settings.ts
+badd +1 ~/git/biotech/apps/api/src/modules/posts/posts.enum.ts
+badd +70 ~/git/biotech/apps/api/src/modules/posts/posts.controller.ts
+badd +10 ~/git/biotech/apps/api/src/modules/posts/posts.policies.ts
+badd +25 ~/git/biotech/apps/api/src/models/tag.ts
+badd +31 ~/git/biotech/apps/api/src/modules/posts/NERD_tree_1
+badd +250 ~/git/biotech/apps/api/src/modules/vacancy/vacancy.service.ts
+badd +307 ~/git/biotech/apps/api/src/modules/events/services/events.service.ts
+badd +8 ~/git/biotech/apps/api/src/models/post.ts
+badd +1 ./colors/sonokai.vim
+badd +1 ~/git/biotech/apps/api/src/modules/vacancy/controllers/vacancies.controller.ts
+argglobal
+%argdel
+set stal=2
+edit ~/git/biotech/apps/api/src/modules/vacancy/controllers/vacancies.controller.ts
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 158 + 95) / 190)
+argglobal
+enew
+file ~/git/biotech/apps/api/src/modules/posts/NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 22 - ((21 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+22
+normal! 05|
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 158 + 95) / 190)
+tabnew
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 158 + 95) / 190)
+argglobal
+enew
+file ~/git/biotech/apps/api/src/modules/posts/NERD_tree_2
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+enew
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 158 + 95) / 190)
+tabnew
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+if bufexists("term://.//127793:/bin/zsh") | buffer term://.//127793:/bin/zsh | else | edit term://.//127793:/bin/zsh | endif
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1235 - ((45 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1235
+normal! 0
+tabnew
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+if bufexists("term://.//127800:/bin/zsh") | buffer term://.//127800:/bin/zsh | else | edit term://.//127800:/bin/zsh | endif
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 36 - ((35 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+36
+normal! 025|
+tabnext 1
+set stal=1
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filnxtToOFIc
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

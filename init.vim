@@ -1,25 +1,52 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" Make sure you use single quotes
-Plug 'mhinz/vim-startify'
-Plug 'junegunn/vim-easy-align'
+"""Git
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+"""Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'xuyuanp/nerdtree-git-plugin'
+
+"""Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+"""NerdTree
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'xuyuanp/nerdtree-git-plugin'
+
+"""FileTypes
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'elixir-editors/vim-elixir'
-Plug 'luochen1990/rainbow'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'pangloss/vim-javascript'
+Plug 'neoclide/jsonc.vim'
+
+"""ts
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
+
+"""Elixir
+Plug 'elixir-editors/vim-elixir'
+
+"""JS
+
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+
+"""Formatters
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'editorconfig/editorconfig-vim'
+
+
+""UI
+Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-startify'
+Plug 'luochen1990/rainbow'
 Plug 'dstein64/nvim-scrollview'
+Plug 'Xuyuanp/scrollbar.nvim'
+Plug 'preservim/nerdcommenter'
 "Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -254,6 +281,10 @@ set autoindent    " Copy indent from the current line when starting a new line.
 set smarttab      " When on, a <Tab> in front of a line inserts blanks according to shiftwidth.
 set smartindent   " Do smart autoindenting when starting a new line.
 
+"" AutoFix
+
+autocmd BufWritePost *.jsx?,*.tsx?,*.e?exs?,*.rs :Format
+
 "startify=====start
 
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -261,14 +292,20 @@ let g:startify_bookmarks = ['~/git/', '~/git/mds', '~/git/biotech']
 
 nnoremap <leader>st :tabnew<cr>:Startify<cr>
 
-"languages
+
+"startify=====end
+
+"""languages
 
 let g:javascript_plugin_jsdoc = 1
 
+"""
 
-"startify=====end
+
+"""
 let g:rainbow_active = 1
 
+"""options
 set relativenumber
 set mouse=a
 
@@ -277,8 +314,26 @@ set list
 
 set nofoldenable
 set foldmethod=marker
-set foldmarker={,}
+set foldmarker=do{,}end
+"""
+"""fzf
 
+" ProjectFiles tries to locate files relative to the git root contained in
+" NerdTree, falling back to the current NerdTree dir if not available
+" see https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
+function! s:find_project_root()
+  let nerd_root = g:NERDTree.ForCurrentTab().getRoot().path.str()
+  "let git_root = system('git -C '.shellescape(nerd_root).' rev-parse --show-toplevel 2> /dev/null')[:-2]
+  "if strlen(git_root)
+    "return git_root
+  "endif
+  return nerd_root
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_project_root()
+
+
+"""
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
@@ -292,6 +347,15 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
                 \ }
 
+let g:typescript_conceal_function = "fn"
+let g:javascript_conceal_function = "fn"
+
+"""autocmd
+
+augroup JsonToJsonc
+    autocmd! FileType json set filetype=jsonc
+augroup END
+
 "remove all trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -300,13 +364,20 @@ autocmd BufReadPost *
      \ |   exe "normal! g`\""
      \ | endif
 
+"""
+"""coc
 
-                let mapleader = "\\"
+autocmd FileType javascript,typescript,javascriptreact,typescriptreact let b:coc_root_patterns = ['.git', '.env', 'tsconfig.json']
+
+"""
+
+let mapleader = "\\"
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 " leader is \
 set autochdir
+set autoread
 
-"keybindings
+""keybindings===================================
 map <S-Del> d1d
 
 "window
@@ -327,8 +398,13 @@ nnoremap <leader>tw :tabnew<cr>
 nnoremap <leader>tb :tabprev<cr>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>tn :tabnext<cr>
-nnoremap <C-Right> :tabnext<cr>
-nnoremap <C-Left> :tabprev<cr>
+
+"""Doesnt work on kitty :/
+"nnoremap <C-S-Right> :tabnext<cr>
+"nnoremap <C-S-Left> :tabprev<cr>
+"inoremap <C-S-Right> <esc>:tabnext<cr>i
+"inoremap <C-S-Left> <esc>:tabprev<cr>i
+
 nnoremap <expr> t ':tabnext ' . v:count . '<cr>'
 
 "tree
@@ -340,6 +416,11 @@ map <A-Down> :move .+1<cr>
 map <A-Up> :move .-2<cr>
 imap <A-Down> <Esc><A-Down>i
 vmap <A-Down> <Esc><A-Down>v
+
+nnoremap <silent> <C-_> :call NERDComment("0", "toggle")<cr>
+vnoremap <silent> <C-_> V:call NERDComment("x", "toggle")<cr>v
+inoremap <silent> <C-_> <esc>V:call NERDComment("0", "toggle")<cr>i
+
 
 nnoremap <S-Left> vB
 nnoremap <S-Right> vE
@@ -355,13 +436,20 @@ nnoremap <F3> :noh<cr>
 
 nnoremap <C-Space> za
 
+
 "other
 nnoremap <silent> <C-Z> u
+inoremap <silent> <C-Z> <esc>ui
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 nnoremap <silent> <leader>es <C-W>K:e $MYVIMRC<cr>
+nnoremap <silent> <C-S> :w<cr>
+vnoremap <silent> <C-S> <esc><C-S>v
+inoremap <silent> <C-S> <esc><C-S>i
+
+nnoremap <silent> <C-{> <c-w><c-p>
 
 "fzf#install
-nnoremap <silent><C-P> :Files<cr>
+nnoremap <silent><C-P> :ProjectFiles<cr>
 
 
 
@@ -369,3 +457,10 @@ nnoremap <silent><C-P> :Files<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <C-LeftMouse> <Plug>(coc-implementation)
+nnoremap <silent> <C-o> :call CocAction('doHover')<cr>
+inoremap <silent> <C-o> <esc>:call CocAction('doHover')<cr>
+
+nnoremap <silent> cd :CocDiagnostics<cr>
+nnoremap <silent> cf :CocFix<cr>
+
+nmap <S-O> :call CocAction('runCommand', 'tsserver.organizexe vimscripteImports')<cr>

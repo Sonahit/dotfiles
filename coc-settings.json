@@ -2,7 +2,9 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "elixirLS.dialyzerEnabled": true,
   "codeLens.enable": true,
-  "coc.preferences.jumpCommand": "vsplit"
+  "coc.preferences.jumpCommand": "vsplit",
+  "eslint.packageManager": "yarn",
+  "eslint.workingDirectories": ["tsconfig.json", ".env", "yarn.lock", "package-lock.json", "package.json"]
 }
 
 

@@ -1,0 +1,159 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/git/elixir-phoenix/lib/web_web/controllers
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +250 term://.//27965:/bin/zsh
+badd +26 ~/git/biotech/apps/web/components/comments/Comments.js
+badd +289 ~/.config/nvim/init.vim
+badd +263 ~/.config/nvim/plugged/vim-javascript/syntax/javascript.vim
+badd +1 ~/.config/:tabnew\ /home/sonahit/.config/nvim/init.vim
+badd +7 ~/.config/nvim/colors/syntax.vim
+badd +1117 ~/.config/nvim/colors/sonokai.vim
+badd +22 ~/.config/nvim/autoload/sonokai.vim
+badd +16 term://.//37945:/bin/zsh
+badd +18 ~/git/biotech/apps/web/yarn.lock
+badd +1 ~/git/biotech/apps/web/.editorconfig
+badd +1 ~/git/biotech/apps/NERD_tree_2
+badd +1 ~/git/NERD_tree_1
+badd +1 ~/.config/nvim/\[Plugins]
+badd +69 ~/.cache/typescript/4.3/node_modules/@types/config/index.d.ts
+badd +1 ~/git/biotech/apps/web/node_modules/antd/lib/index.d.ts
+badd +46 ~/git/biotech/apps/web/auth/context.js
+badd +381 ~/git/biotech/apps/web/node_modules/@types/react/index.d.ts
+badd +37 ~/git/biotech/apps/web/auth/cookies.js
+badd +85 ~/git/biotech/apps/web/actions/user.js
+badd +1 ~/git/biotech/apps/web/auth/NERD_tree_2
+badd +64 ~/git/elixir-phoenix/mix.exs
+badd +44 term://.//62244:/bin/zsh
+badd +20 ~/git/elixir-phoenix/lib/web_web/controllers/article_controller.ex
+badd +6 ~/git/elixir-phoenix/lib/web_web/controllers/page_controller.ex
+badd +22 ~/git/elixir-phoenix/lib/web_web/endpoint.ex
+badd +716 ~/git/elixir-phoenix/deps/phoenix/lib/phoenix/controller.ex
+badd +23 ~/git/elixir-phoenix/lib/web_web/router.ex
+badd +17 ~/git/elixir-phoenix/config/config.exs
+badd +37 ~/git/elixir-phoenix/config/dev.exs
+badd +28 ~/git/elixir-phoenix/config/prod.exs
+badd +10 ~/git/elixir-phoenix/lib/web_web/templates/layout/app.html.eex
+badd +17 ~/git/elixir-phoenix/lib/web_web/templates/page/index.html.eex
+badd +0 term://.//76775:/bin/zsh
+badd +1 ~/git/elixir-phoenix/lib/web_web/views/article_view.ex
+badd +1 ~/git/elixir-phoenix/lib/web_web/views/page_view.ex
+badd +1 ~/git/elixir-phoenix/lib/web_web/templates/article/index.html.eex
+badd +1 ~/git/elixir-phoenix/lib/web_web/gettext.ex
+badd +7 ~/git/elixir-phoenix/lib/web_web/utils/struct.ex
+argglobal
+%argdel
+set stal=2
+edit ~/git/elixir-phoenix/lib/web_web/controllers/article_controller.ex
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 79 + 95) / 190)
+exe 'vert 3resize ' . ((&columns * 78 + 95) / 190)
+argglobal
+enew
+file ~/git/biotech/apps/web/auth/NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={,}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+argglobal
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr=do{,}end
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 13 - ((12 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+13
+normal! 0
+wincmd w
+argglobal
+if bufexists("~/git/elixir-phoenix/lib/web_web/templates/page/index.html.eex") | buffer ~/git/elixir-phoenix/lib/web_web/templates/page/index.html.eex | else | edit ~/git/elixir-phoenix/lib/web_web/templates/page/index.html.eex | endif
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr={,}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 17 - ((13 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+17
+normal! 0103|
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 79 + 95) / 190)
+exe 'vert 3resize ' . ((&columns * 78 + 95) / 190)
+tabnew
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+if bufexists("term://.//76775:/bin/zsh") | buffer term://.//76775:/bin/zsh | else | edit term://.//76775:/bin/zsh | endif
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr={,}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1659 - ((9 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1659
+normal! 0
+tabnext 1
+set stal=1
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filnxtToOFIc
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
