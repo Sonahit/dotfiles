@@ -2,5 +2,6 @@ site
 plugged
 doc
 autoload
+session
 after
 .netr*
