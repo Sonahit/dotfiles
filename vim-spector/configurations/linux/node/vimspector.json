@@ -1,0 +1,13 @@
+{
+  "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json",
+  "configurations": {
+    "node-js:attach": {
+      "adapter": "vscode-node",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "console": "integratedTerminal",
+      "cwd": "${workspaceRoot}"
+    }
+  }
+}

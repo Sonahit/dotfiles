@@ -37,6 +37,9 @@ Plug 'prettier/vim-prettier', {
 Plug 'editorconfig/editorconfig-vim'
 
 
+"""Debug
+"Plug 'puremourning/vimspector'
+
 ""UI
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
@@ -283,7 +286,7 @@ set smartindent   " Do smart autoindenting when starting a new line.
 
 "" AutoFix
 
-autocmd BufWritePost *.jsx?,*.tsx?,*.e?exs?,*.rs :Format
+autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.ex,*.eex,*exs,*.rs :Format
 
 "startify=====start
 
@@ -315,6 +318,7 @@ set list
 set nofoldenable
 set foldmethod=marker
 set foldmarker=do{,}end
+set nowrap
 """
 """fzf
 
@@ -334,6 +338,11 @@ command! ProjectFiles execute 'Files' s:find_project_root()
 
 
 """
+"let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+"let g:vimspector_base_dir=expand('$HOME/.config/nvim/vim-spector')
+
+
+let g:NERDTreeChDirMode = 2
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
@@ -410,6 +419,12 @@ nnoremap <expr> t ':tabnext ' . v:count . '<cr>'
 "tree
 nnoremap <leader><Tab> :NERDTreeToggle<cr>
 
+"history
+nnoremap <leader>b :ls<cr>:b<space>
+nnoremap <leader>i <C-I><Tab>
+nnoremap <leader>o <C-O>
+nnoremap <leader>ju :jumps<cr>
+nnoremap <leader>cju :clearjumps<cr>
 
 "line-actions
 map <A-Down> :move .+1<cr>
