@@ -37,10 +37,12 @@ Plug 'prettier/vim-prettier', {
 Plug 'editorconfig/editorconfig-vim'
 
 
+
 """Debug
 "Plug 'puremourning/vimspector'
 
 ""UI
+Plug 'dag/vim-fish'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
@@ -72,7 +74,6 @@ let g:lightline = {'colorscheme' : 'sonokai'}
 colorscheme sonokai
 
 syntax on
-
 " Recommended, but optionally add:
 
 " Set tag file if REPOBASE is set. This assumes you set the environment
@@ -318,7 +319,10 @@ set list
 set nofoldenable
 set foldmethod=marker
 set foldmarker=do{,}end
-set nowrap
+""" Line Wrapping
+"set nowrap
+set linebreak
+
 """
 """fzf
 
