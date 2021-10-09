@@ -42,6 +42,7 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'puremourning/vimspector'
 
 ""UI
+Plug 'sainnhe/sonokai'
 Plug 'dag/vim-fish'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
@@ -389,6 +390,8 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNO
 " leader is \
 set autochdir
 set autoread
+set clipboard=unnamedplus
+
 
 ""keybindings===================================
 map <S-Del> d1d
