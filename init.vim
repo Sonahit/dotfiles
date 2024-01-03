@@ -1,4 +1,7 @@
-call plug#begin('~/.config/nvim/plugged')
+if has('nvim')
+
+
+call plug#begin('/home/sonahit/.config/nvim/plugged')
 
 """Git
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -53,9 +56,11 @@ Plug 'preservim/nerdcommenter'
 "Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'TysonAndre/php-vim-syntax'
 
 call plug#end()
 
+endif
 
 "Add the following syntax highlighting related configuration to your ~/.config/nvim/init.vim file:
 " The ^[ here is one character that you can type with control-v ESC.
@@ -64,15 +69,14 @@ if has('nvim')
   set t_8f=[38;2;%lu;%lu;%lum
   set t_8b=[48;2;%lu;%lu;%lum
   set termguicolors
+  let g:sonokai_style = 'shusia'
+  let g:sonokai_enable_italic = 1
+  let g:sonokai_disable_italic_comment = 1
+  let g:airline_theme = 'sonokai'
+  let g:lightline = {'colorscheme' : 'sonokai'}
+
+  colorscheme sonokai
 endif
-
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-let g:airline_theme = 'sonokai'
-let g:lightline = {'colorscheme' : 'sonokai'}
-
-colorscheme sonokai
 
 syntax on
 " Recommended, but optionally add:
@@ -314,8 +318,8 @@ let g:rainbow_active = 1
 set relativenumber
 set mouse=a
 
-set listchars=tab:-->,space:.
-set list
+"set listchars=tab:-->,space:.
+"set list
 
 set nofoldenable
 set foldmethod=marker
@@ -448,7 +452,8 @@ nnoremap <S-Left> vB
 nnoremap <S-Right> vE
 vnoremap <S-Left> B
 vnoremap <S-Right> E
-vnoremap <C-C> :w !xclip -i -sel c<cr><cr>
+"vnoremap <C-C> y !xclip -i -sel c<cr><cr>
+vnoremap <C-C> y
 
 vmap <A-Up> <Esc><A-Up>v
 imap <A-Up> <Esc><A-Up>i
